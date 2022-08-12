@@ -127,7 +127,6 @@ int main(void){
 	srand(time(0));
 	unsigned char sel;
 	appleRandom();
-	update();
 	for(;;){
 		move();
 		update();
