@@ -19,11 +19,11 @@
 typedef struct{
 	int x;
 	int y;
-} Character;
+} GameObject;
 
-Character head = {width/2,height/2};
-Character apple;
-Character tails[size];
+GameObject head = {width/2,height/2};
+GameObject apple;
+GameObject tails[size];
 unsigned int tailCount = 0;
 unsigned char direction = 4;
 void update(void){
@@ -83,7 +83,7 @@ void headTo_WASD(unsigned char val){
 void move(void){
 	if(head.x == apple.x && head.y == apple.y){
 		appleRandom();
-		tails[tailCount] = (Character){1,1};
+		tails[tailCount] = (GameObject){1,1};
 		tailCount++;
 	}
 	int i;
@@ -140,7 +140,6 @@ int main(void){
 			key = getch();
 			if(key == 224)headTo_Arrow(getch());
 			else headTo_WASD(key);
-			
 		}
 		Sleep(delayVal);
 	}
