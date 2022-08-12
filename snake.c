@@ -111,11 +111,16 @@ void move(void){
 	}
 }
 void collisionCheck(void){
+	int i;
+	for(i = 0;i < tailCount;i++){
+		if(tails[i].x == apple.x && tails[i].y == apple.y){
+			appleRandom();			
+		}
+	}
 	if(head.x <= 1 || head.y <= 1 || head.x >= width-1 || head.y >= height-1){
 		quit();
 	}
 	else{
-		int i;
 		for(i = 0;i < tailCount;i++){
 			if(head.x == tails[i].x && head.y == tails[i].y){
 				quit();
@@ -125,16 +130,16 @@ void collisionCheck(void){
 }
 int main(void){
 	srand(time(0));
-	unsigned char sel;
+	unsigned char key;
 	appleRandom();
 	for(;;){
 		move();
 		update();
 		collisionCheck();
 		if(kbhit()){
-			sel = getch();
-			if(sel == 224)headTo_Arrow(getch());
-			else headTo_WASD(sel);
+			key = getch();
+			if(key == 224)headTo_Arrow(getch());
+			else headTo_WASD(key);
 			
 		}
 		Sleep(delayVal);
