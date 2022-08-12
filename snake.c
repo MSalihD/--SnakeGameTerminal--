@@ -29,14 +29,6 @@ unsigned char direction = 4;
 void update(void){
 	system("cls");
 	int i,j;
-	for(j = 1;j < height;j++){
-		for(i = 1;i < width;i++){
-			if(i == width-1 || j == height-1){
-				gotoxy(i,j);
-				putchar('&');
-			}
-		}
-	}
 	gotoxy(head.x,head.y);
 	putchar('#');
 	gotoxy(apple.x,apple.y);
@@ -47,6 +39,14 @@ void update(void){
 	}
 	gotoxy(width+1,1);
 	printf("%d",tailCount);
+	for(j = 1;j < height;j++){
+		for(i = 1;i < width;i++){
+			if(i == width-1 || j == height-1){
+				gotoxy(i,j);
+				putchar('&');
+			}
+		}
+	}
 }
 void headTo_Arrow(unsigned char val){
 	switch(val){
