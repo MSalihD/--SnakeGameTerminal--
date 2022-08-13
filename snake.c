@@ -48,33 +48,21 @@ void update(void){
 		}
 	}
 }
-void headTo_Arrow(unsigned char val){
+void headTo(unsigned char val){
 	switch(val){
-		case 72:
-		if(direction != down)direction = up;
-		break;
-		case 80:
-		if(direction != up)direction = down;
-		break;
-		case 77:
-		if(direction != left)direction = right;
-		break;
-		case 75:
-		if(direction != right)direction = left;
-		break;
-	}
-}
-void headTo_WASD(unsigned char val){
-	switch(val){
+		case 'H':
 		case 'w':
 		if(direction != down)direction = up;
 		break;
+		case 'P':
 		case 's':
 		if(direction != up)direction = down;
 		break;
+		case 'M':
 		case 'd':
 		if(direction != left)direction = right;
 		break;
+		case 'K':
 		case 'a':
 		if(direction != right)direction = left;
 		break;
@@ -138,8 +126,8 @@ int main(void){
 		collisionCheck();
 		if(kbhit()){
 			key = getch();
-			if(key == 224)headTo_Arrow(getch());
-			else headTo_WASD(key);
+			if(key == 224)headTo(getch());
+			else headTo(key);
 		}
 		Sleep(delayVal);
 	}
