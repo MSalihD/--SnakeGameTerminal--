@@ -7,7 +7,7 @@
 #define appleRandom() apple.x=(1+rand()%(width-2));apple.y=(1+rand()%(height-2))
 #define quit() gotoxy(width+1,2);printf("GAME%cOVER",32);gotoxy(width+4,height+4);\
 				getchar();system("cls");exit(0)
-#define delayVal 50
+#define delayVal 50 // if it's freezing you can lower it or set it to 0
 #define width 30
 #define height 15
 #define size (width*height)
