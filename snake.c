@@ -11,10 +11,6 @@
 #define width 30
 #define height 15
 #define size (width*height)
-#define left 0
-#define up 1
-#define right 2
-#define down 3
 
 typedef struct{
 	int x;
@@ -52,48 +48,45 @@ void headTo(unsigned char val){
 	switch(val){
 		case 'H':
 		case 'w':
-		if(direction != down)direction = up;
+		if(direction != 3)direction = 1;
 		break;
 		case 'P':
 		case 's':
-		if(direction != up)direction = down;
+		if(direction != 1)direction = 3;
 		break;
 		case 'M':
 		case 'd':
-		if(direction != left)direction = right;
+		if(direction != 0)direction = 2;
 		break;
 		case 'K':
 		case 'a':
-		if(direction != right)direction = left;
+		if(direction != 2)direction = 0;
 		break;
 	}
 }
 void move(void){
 	if(head.x == apple.x && head.y == apple.y){
 		appleRandom();
-		tails[tailCount] = (GameObject){1,1};
-		tailCount++;
+		tails[tailCount++] = (GameObject){1,1};
 	}
 	int i;
 	for(i = tailCount - 1;i > 0;i--){
-		tails[i].x = tails[i - 1].x;
-		tails[i].y = tails[i - 1].y;
+		tails[i] = tails[i - 1];
 	}
 	if(tailCount > 0){
-		tails[0].x = head.x;
-		tails[0].y = head.y;
+		tails[0] = head;
 	}
 	switch(direction){
-		case up:
+		case 1:
 		head.y--;
 		break;
-		case down:
+		case 3:
 		head.y++;
 		break;
-		case right:
+		case 2:
 		head.x++;
 		break;
-		case left:
+		case 0:
 		head.x--;
 		break;
 	}
