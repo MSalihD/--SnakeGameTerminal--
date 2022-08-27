@@ -50,7 +50,6 @@ void clearSprite(void){
 	int i,j;
 	gotoxy(head.x,head.y);
 	putchar(' ');
-	gotoxy(apple.x,apple.y);
 	for(i = 0;i < tailCount;i++){
 		gotoxy(tails[i].x,tails[i].y);
 		putchar(' ');
