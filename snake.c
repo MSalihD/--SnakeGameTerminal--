@@ -25,10 +25,10 @@ GameObject tails[size];
 unsigned int tailCount = 0;
 unsigned char direction = 4;
 void printBoard(void){
-	int m,u;
-	for(u=1;u<height;u++){
-		for(m=1;m<width;m++){
-			if(m==width-1||u==height-1){
+	int i,j;
+	for(j = 1;j < height;j++){
+		for(i = 1;i < width;i++){
+			if(m == width-1 || u==height-1){
 				gotoxy(m,u);
 				putchar('&');
 			}
