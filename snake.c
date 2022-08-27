@@ -28,8 +28,8 @@ void printBoard(void){
 	int i,j;
 	for(j = 1;j < height;j++){
 		for(i = 1;i < width;i++){
-			if(m == width-1 || u==height-1){
-				gotoxy(m,u);
+			if(i == width-1 || j == height-1){
+				gotoxy(i,j);
 				putchar('&');
 			}
 		}
